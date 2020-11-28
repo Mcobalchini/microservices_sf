@@ -8,24 +8,47 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.matheuscobalchini</groupId>
-	<artifactId>config</artifactId>
+	<groupId>com.mcobalchini</groupId>
+	<artifactId>produtos</artifactId>
 	<version>1.0</version>
-	<name>config</name>
+	<name>produtos</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>15</java.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-		<kotlin.version>1.4.20</kotlin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -56,46 +79,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
- 				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>2.6.0</version>
-				<configuration>
-					<from>
-						<image>openjdk:15-jdk-slim-buster</image>
-					</from>
-					<to>
-						<image>mcobalchini/config:${version}</image>
-					</to>
-					<container>
-						<jvmFlags>
-							<jvmFlag>-Xms128m</jvmFlag>
-							<jvmFlag>-Xmx256m</jvmFlag>
-						</jvmFlags>
-						<mainClass>com.matheuscobalchini.config.ConfigApplication</mainClass>
-					</container>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>compile</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>testCompile</id>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
